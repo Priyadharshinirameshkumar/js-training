@@ -134,64 +134,108 @@ console.log(hasInactiveUser);
 const allHaveRoles = users.every(user => user.role);
 console.log(allHaveRoles);
 
-
 // Section 8 - Spot & Fix the Bugs
 
-// 1. Loose equality trap
+// 1. Loose Equality Trap
 
 const input = "5";
 const score = 5;
 
-// Wrong: == compares values after type conversion
-// Correct: === compares both value and type
+/*
+Explanation:
+
+The == operator checks only whether the values are equal.
+Before comparing, JavaScript automatically converts the data types.
+
+Here, "5" is a string and 5 is a number.
+When using ==, JavaScript converts "5" into the number 5,
+so the condition becomes true.
+
+To avoid unexpected results, use ===.
+The === operator compares both value and data type.
+*/
 
 if (input === score) {
-console.log("match");
+  console.log("match");
 }
 
-// 2. Missing return in arrow function
 
-// Wrong: no return statement inside curly braces
-// Correct: return the value
+// 2. Missing Return in Arrow Function
+
+/*
+Explanation:
+
+When an arrow function uses curly braces {},
+we must explicitly return a value.
+
+In the original code, n * 2 was calculated,
+but it was never returned.
+
+Because of that, map() received undefined for every element
+and produced [undefined, undefined, undefined].
+
+Adding the return statement fixes the problem.
+*/
 
 const doubled = [1, 2, 3].map(n => {
-return n * 2;
+  return n * 2;
 });
 
 console.log(doubled);
 
-// 3. Mutating original array
+
+// 3. Mutating Original Array
 
 const original = [1, 2, 3];
 
-// Wrong: push() changes the original array
-// Correct: use spread operator to create a new array
+/*
+Explanation:
+
+The push() method directly modifies the original array.
+
+Sometimes we need to keep the original data unchanged
+and create a new array instead.
+
+The spread operator (...) copies all elements from the
+original array and allows us to add new values without
+changing the original array.
+*/
 
 const updatedArray = [...original, 4];
 
 console.log(original);
 console.log(updatedArray);
 
-// 4. const object reassignment confusion
+
+// 4. const Object Reassignment Confusion
 
 const userInfo = {
-name: "Alice",
-active: true
+  name: "Alice",
+  active: true
 };
 
-// This does NOT throw an error because
-// object properties can be modified
+/*
+Explanation:
+
+Many beginners think that a const object cannot be changed.
+
+Actually, const only prevents the variable from pointing
+to a different object.
+
+The properties inside the object can still be modified.
+
+So changing userInfo.active works without any error.
+
+However, assigning a completely new object to userInfo
+will cause an error because const variables cannot be reassigned.
+*/
 
 userInfo.active = false;
 
 console.log(userInfo);
 
-// This WOULD throw an error because
-// const variables cannot be reassigned
-
 // userInfo = { name: "Bob" };
 // Error: Assignment to constant variable
-
 
 // Section 9 - Things to Be Aware Of
 
@@ -200,10 +244,24 @@ console.log(userInfo);
 const Username = "Alice";
 const username = "Bob";
 
-// JavaScript treats these as different variables
+/*
+Explanation:
+
+JavaScript is case-sensitive.
+
+This means uppercase and lowercase letters
+are treated differently.
+
+So Username and username are considered
+two completely different variables.
+
+Because of this, both variables can store
+different values without any conflict.
+*/
 
 console.log(Username);
 console.log(username);
+
 
 // 2. undefined vs null
 
@@ -214,31 +272,61 @@ console.log(typeof a);
 console.log(typeof b);
 
 /*
-null = intentional empty value
-typeof null returns "object"
+Explanation:
 
-undefined = value not assigned
-typeof undefined returns "undefined"
+null means the value is intentionally empty.
+
+We use null when we want to indicate that a variable
+currently has no value.
+
+undefined means a value has not been assigned yet.
+
+Although typeof null returns "object",
+this is a well-known behavior of JavaScript.
+
+typeof undefined returns "undefined".
 */
+
 
 // 3. Call Order Matters
 
-// Arrow functions are not hoisted
-// Function must be declared before calling
+/*
+Explanation:
+
+Arrow functions are not fully hoisted.
+
+If we try to call the function before it is created,
+JavaScript will throw a ReferenceError.
+
+To avoid this, always declare the arrow function first
+and then call it afterwards.
+*/
 
 const greet = (name) => `Hello, ${name}`;
 
 console.log(greet("Alice"));
 
 /*
-If greet() is called before declaration,
-ReferenceError occurs.
+If greet() is called before its declaration,
+JavaScript cannot find the function yet
+and throws an error.
 */
+
 
 // 4. Semicolons
 
-// Both styles work in JavaScript.
-// Use one style consistently.
+/*
+Explanation:
+
+JavaScript allows code to be written with
+or without semicolons in many situations.
+
+However, mixing both styles in the same file
+can make the code look inconsistent.
+
+It is considered a good practice to choose
+one style and use it throughout the project.
+*/
 
 const p = 10;
 const q = 20;
