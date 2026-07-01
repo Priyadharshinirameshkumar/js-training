@@ -1,0 +1,1 @@
+//Running "npm run typecheck" helps catch type-related issues early,allowing bugs to be fixed before the code is shared with the team or released to production.

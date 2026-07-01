@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Task Tracker</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>Task Tracker</h1>
+    </header>
+
+    <main>
+
+        <!-- Add Task Form -->
+
+        <section>
+
+            <h2>Add New Task</h2>
+
+            <form id="task-form">
+
+                <div>
+
+                    <label for="task-name">
+                        Task Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="task-name"
+                        required>
+
+                </div>
+
+                <br>
+
+                <div>
+
+                    <label for="priority">
+                        Priority
+                    </label>
+
+                    <select
+                        id="priority">
+
+                        <option>Low</option>
+                        <option>Medium</option>
+                        <option>High</option>
+
+                    </select>
+
+                </div>
+
+                <br>
+
+                <div>
+
+                    <label for="due-date">
+                        Due Date
+                    </label>
+
+                    <input
+                        type="date"
+                        id="due-date"
+                        required>
+
+                </div>
+
+                <br>
+
+                <button type="submit">
+                    Add Task
+                </button>
+
+            </form>
+
+        </section>
+
+        <hr>
+
+        <!-- Task List -->
+
+        <section>
+
+            <h2>Task List</h2>
+
+            <!-- Filter Buttons -->
+
+            <div>
+
+                <button id="all-btn">
+                    All
+                </button>
+
+                <button id="pending-btn">
+                    Pending
+                </button>
+
+                <button id="done-btn">
+                    Done
+                </button>
+
+            </div>
+
+            <br>
+
+            <!-- Sort -->
+
+            <label for="sort">
+
+                Sort By
+
+            </label>
+
+            <select id="sort">
+
+                <option value="priority">
+
+                    By Priority
+
+                </option>
+
+                <option value="dueDate">
+
+                    By Due Date
+
+                </option>
+
+            </select>
+
+            <br><br>
+
+            <!-- Counter -->
+
+            <p id="task-counter">
+
+                Showing 0 of 0 tasks
+
+            </p>
+
+            <!-- Tasks -->
+
+            <ul id="task-list">
+
+            </ul>
+
+            <button id="clear-all">
+
+                Clear All
+
+            </button>
+
+        </section>
+
+        <hr>
+
+        <!-- Summary Table -->
+
+        <section>
+
+            <h2>Task Summary</h2>
+
+            <table border="1">
+
+                <thead>
+
+                    <tr>
+
+                        <th>Task</th>
+
+                        <th>Priority</th>
+
+                        <th>Due Date</th>
+
+                        <th>Status</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody id="summary-body">
+
+                </tbody>
+
+            </table>
+
+        </section>
+
+    </main>
+
+    <footer>
+
+        <p>
+
+            © 2026 Task Tracker
+
+        </p>
+
+    </footer>
+
+    <script type="module" src="main.js"></script>
+
+</body>
+
+</html>

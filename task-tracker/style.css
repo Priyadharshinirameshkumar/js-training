@@ -1,0 +1,42 @@
+body{
+
+    font-family: Arial;
+
+    margin:40px;
+
+}
+
+.done{
+
+    text-decoration:line-through;
+
+    color:gray;
+
+    opacity:0.7;
+
+}
+
+button{
+
+    margin:5px;
+
+    padding:6px 12px;
+
+}
+
+table{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+}
+
+th,
+td{
+
+    padding:10px;
+
+    text-align:left;
+
+}
