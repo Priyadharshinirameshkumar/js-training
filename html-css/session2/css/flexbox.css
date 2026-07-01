@@ -59,3 +59,47 @@ body{
     border-radius:4px;
 
 }
+
+/* ===========================
+   Flex Grow Demo
+=========================== */
+
+.grow-container {
+
+    display: flex;
+
+    gap: 1rem;
+
+    background: #eee;
+
+    padding: 1rem;
+
+}
+
+.grow-1 {
+
+    flex-grow: 1;
+
+    background: #818cf8;
+
+    padding: 1rem;
+
+}
+
+.grow-2 {
+
+    flex-grow: 2;
+
+    background: #4f46e5;
+
+    color: white;
+
+    padding: 1rem;
+
+}
+
+/*
+flex-grow allows flex items to expand and use the available space.
+An item with a larger flex-grow value receives more space than items
+with a smaller value.
+*/
