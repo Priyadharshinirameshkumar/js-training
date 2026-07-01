@@ -1,0 +1,72 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+
+    font-family: Arial, sans-serif;
+
+    margin: 20px;
+
+}
+
+/* Common styles */
+
+.box-px,
+.box-percent,
+.box-rem,
+.box-vw {
+
+    padding: 1rem;
+
+    margin-bottom: 1rem;
+
+    border: 2px solid black;
+
+}
+
+/* 300px */
+
+.box-px {
+
+    width: 300px;
+
+    background: #f0f4ff;
+
+}
+
+/* 50% */
+
+.box-percent {
+
+    width: 50%;
+
+    background: #fff0f4;
+
+}
+
+/* 20rem */
+
+.box-rem {
+
+    width: 20rem;
+
+    background: #f0fff4;
+
+}
+
+/* 60vw */
+
+.box-vw {
+
+    width: 60vw;
+
+    background: #fffbf0;
+
+}
+
+/*
+Use px when a fixed size is required (e.g., icons or borders).
+Use rem for scalable font and layout sizing.
+Use % when an element should size relative to its parent container.
+*/
