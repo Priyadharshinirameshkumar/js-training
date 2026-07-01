@@ -1,0 +1,61 @@
+*{
+
+    box-sizing:border-box;
+
+}
+
+body{
+
+    font-family:Arial, sans-serif;
+
+    margin:20px;
+
+}
+
+/* Flex Container */
+
+.container{
+
+    display:flex;
+
+    background:#eee;
+
+    padding:1rem;
+    flex-wrap:wrap;
+    gap:1rem;
+    /* justify-content:center;
+   Moves all flex items to the center horizontally. */
+   /* justify-content:space-between;
+   Places the first item at the start and the last item at the end,
+   with equal space between all items. */
+
+   /* justify-content:space-evenly;
+   Adds equal space before, between, and after every item. */
+
+   /* align-items:flex-start;
+   Aligns all items to the top of the container. */
+
+   /* align-items:stretch;
+   Stretches items to fill the container height
+   if they do not have a fixed height. */
+
+   /* flex-direction:column;
+   Places all items vertically instead of horizontally. */
+
+   /* flex-wrap:wrap;
+   Moves items onto the next line when there isn't enough space. */
+}
+
+/* Flex Items */
+
+.item{
+
+    background:#4f46e5;
+
+    color:white;
+
+    padding:1rem 2rem;
+
+    border-radius:4px;
+
+}
