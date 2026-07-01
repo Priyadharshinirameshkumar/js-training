@@ -208,3 +208,32 @@ min-width media queries.
     }
 
 }
+
+/* ===================================
+   Responsive Image
+=================================== */
+
+.image-section {
+
+    margin-top: 2rem;
+
+}
+
+img {
+
+    
+max-width: 100%;
+    height: auto;
+
+    display: block;
+
+}
+
+/*
+max-width: 100% prevents the image from becoming wider than
+its parent container, so it fits on smaller screens.
+
+height: auto keeps the image's original aspect ratio while
+the width changes, preventing the image from appearing stretched
+or squashed.
+*/
