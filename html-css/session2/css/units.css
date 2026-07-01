@@ -70,3 +70,50 @@ Use px when a fixed size is required (e.g., icons or borders).
 Use rem for scalable font and layout sizing.
 Use % when an element should size relative to its parent container.
 */
+
+/* 
+   Font Size Demo
+ */
+
+html {
+
+    font-size: 20px;
+
+}
+
+.font-demo {
+
+    font-size: 12px;
+
+    margin-top: 30px;
+
+    border: 2px solid #444;
+
+    padding: 15px;
+
+}
+
+.px-text {
+
+    font-size: 16px;
+
+}
+
+.rem-text {
+
+    font-size: 1rem;
+
+}
+
+.em-text {
+
+    font-size: 1.5em;
+
+}
+
+/*
+Difference between rem and em:
+
+rem is based on the root (html) font size.
+em is based on the font size of its parent element.
+*/
