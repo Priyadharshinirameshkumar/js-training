@@ -158,3 +158,48 @@ so it spans the entire row.
     text-align: center;
 
 }
+
+/* ===========================
+   Responsive Photo Grid
+=========================== */
+
+.photo-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+
+    gap: 1rem;
+
+    padding: 1rem;
+
+}
+
+.photo-card {
+
+    background: #e0e7ff;
+
+    height: 150px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 8px;
+
+    font-weight: bold;
+
+}
+
+/*
+repeat(auto-fill, minmax(200px, 1fr)) Explanation:
+
+- repeat() creates multiple columns automatically.
+- auto-fill adds as many columns as will fit in the available space.
+- minmax(200px, 1fr) means each column will be at least 200px wide.
+- If more space is available, the columns expand equally using 1fr.
+- As the browser width changes, the number of columns automatically
+  increases or decreases without using media queries.
+*/
