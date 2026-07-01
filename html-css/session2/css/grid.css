@@ -1,0 +1,54 @@
+* {
+
+    box-sizing: border-box;
+
+}
+
+body {
+
+    font-family: Arial, sans-serif;
+
+    margin: 20px;
+
+}
+
+/* ===========================
+   Grid Container
+=========================== */
+
+.grid-container {
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 1rem;
+
+    padding: 1rem;
+
+}
+
+/* ===========================
+   Grid Items
+=========================== */
+
+.grid-item {
+
+    background: #4f46e5;
+
+    color: white;
+
+    padding: 2rem;
+
+    text-align: center;
+
+    border-radius: 6px;
+
+}
+
+/*
+fr stands for "fraction" of the available space.
+Unlike percentages (%), which are based on the container's width,
+fr units divide only the remaining available space after fixed-size
+columns and gaps are considered.
+*/
