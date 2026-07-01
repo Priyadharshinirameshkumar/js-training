@@ -52,3 +52,47 @@ Unlike percentages (%), which are based on the container's width,
 fr units divide only the remaining available space after fixed-size
 columns and gaps are considered.
 */
+
+/* ===========================
+   Featured Grid
+=========================== */
+
+.grid-container-featured {
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 1rem;
+
+    padding: 1rem;
+
+    margin-top: 2rem;
+
+}
+
+.featured {
+
+    grid-column: 1 / -1;
+
+    background: #4f46e5;
+
+    color: white;
+
+    padding: 2rem;
+
+    text-align: center;
+
+    border-radius: 6px;
+
+}
+
+/*
+grid-column: 1 / 3
+Starts at grid line 1 and ends at grid line 3.
+This makes the item span across the first two columns.
+If changed to:grid-column: 1 / -1;
+the item starts at the first grid line and ends at the last grid line,
+so it spans the entire row.
+-1 represents the last grid line of the grid.
+*/
