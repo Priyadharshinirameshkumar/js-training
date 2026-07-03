@@ -67,3 +67,18 @@ nodemon belongs in devDependencies because it automatically restarts the applica
 - Stores the exact versions of installed packages.
 - Ensures every developer installs the same package versions.
 - Helps maintain consistency across different systems.
+
+## npm install vs npm ci
+
+### npm install
+
+- Installs all required packages.
+- Updates package-lock.json if needed.
+- Used during normal development when adding or updating packages.
+
+### npm ci
+
+- Installs packages exactly as listed in package-lock.json.
+- Deletes the existing node_modules folder before installation.
+- Faster than npm install.
+- Used mainly in Continuous Integration (CI) and deployment environments to ensure consistent installations.
