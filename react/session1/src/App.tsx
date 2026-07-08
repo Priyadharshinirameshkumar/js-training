@@ -5,16 +5,10 @@
 // A React component is a reusable function that returns UI elements.
 // Reusing components is better than copying HTML because the code is shorter,easier to maintain, and any change made in one component updates everywhere it is used.
 // Fragment groups elements without adding an extra HTML element.
-import InternCard from "./InternCard";
+import Dashboard from "./Dashboard";
 
 function App() {
-  return (
-    <>
-      <h1>Intern Card</h1>
-
-      <InternCard />
-    </>
-  );
+  return <Dashboard />;
 }
 
 export default App;
