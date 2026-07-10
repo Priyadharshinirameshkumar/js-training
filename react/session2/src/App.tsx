@@ -202,26 +202,62 @@
 
 //task 4.2
 
-import Card from "./Card"
+// import Card from "./Card"
+
+// function App() {
+//   return (
+//     <div>
+
+//       <Card title="Rahul">
+//         <p>Score: 92</p>
+//         <p>Status: Present</p>
+//         <button>View Profile</button>
+//       </Card>
+
+//       <Card title="Announcements">
+//         <ul>
+//           <li>Session 3 tomorrow at 10am</li>
+//           <li>Submit PRs by EOD</li>
+//         </ul>
+//       </Card>
+
+//       <Card title="Empty Card" />
+
+//     </div>
+//   )
+// }
+
+// export default App
+
+
+
+//task 5.2
+import InternCard from "./InternCard"
 
 function App() {
   return (
     <div>
 
-      <Card title="Rahul">
-        <p>Score: 92</p>
-        <p>Status: Present</p>
-        <button>View Profile</button>
-      </Card>
+      <InternCard
+        name="Rahul"
+        score={92}
+        isPresent={true}
+        role="Frontend"
+      />
 
-      <Card title="Announcements">
-        <ul>
-          <li>Session 3 tomorrow at 10am</li>
-          <li>Submit PRs by EOD</li>
-        </ul>
-      </Card>
+      <InternCard
+        name="Priya"
+        score={78}
+        isPresent={true}
+        role="Backend"
+      />
 
-      <Card title="Empty Card" />
+      <InternCard
+        name="Amit"
+        score={45}
+        isPresent={false}
+        role="Intern"
+      />
 
     </div>
   )
