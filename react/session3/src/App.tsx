@@ -18,10 +18,39 @@
 
 //task 2.1
 
-import InternForm from "./InternForm"
+// import InternForm from "./InternForm"
+
+// function App() {
+//   return <InternForm />
+// }
+
+// export default App
+
+//task 3.1
+// import TogglePanel from "./TogglePanel"
+
+// function App() {
+//   return <TogglePanel />
+// }
+
+// export default App
+
+
+
+//task 3.2
+// import InternObjectForm from "./InternObjectForm"
+// function App() {
+//   return <InternObjectForm />
+// }
+// export default App
+
+
+//task 3.3
+
+import InternList from "./InternList"
 
 function App() {
-  return <InternForm />
+  return <InternList />
 }
 
 export default App
