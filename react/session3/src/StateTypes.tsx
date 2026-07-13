@@ -15,7 +15,7 @@ function StateTypes() {
 
   // Explicit type is required because null and [] are ambiguous.
   const [selected, setSelected] = useState<Intern | null>(null)
-  const [interns, setInterns] = useState<Intern[]>([])
+  //const [interns, setInterns] = useState<Intern[]>([])
 
   return (
     <div>
@@ -31,9 +31,7 @@ function StateTypes() {
         {selected ? selected.name : "(none)"}
       </p>
 
-      <p>
-        Intern Count: {interns.length}
-      </p>
+      
 
       <button onClick={() => setName("Rahul")}>
         Set Name
@@ -46,7 +44,7 @@ function StateTypes() {
       <button onClick={() => setIsActive(true)}>
         Activate
       </button>
-      <button onClick={() => setSelected({ id: 1, name: 'Rahul',isPresent:true })}>
+      <button onClick={() => setSelected({ id: 1, name: 'Rahul',isPresent:false })}>
         Activate 1
       </button>
       {/* TypeScript prevents assigning incorrect types to state.
