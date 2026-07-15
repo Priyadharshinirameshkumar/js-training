@@ -33,30 +33,97 @@
 // export default App
 
 
-import Navbar from './components/Navbar'
-import ThemedCard from './components/ThemedCard'
+// import Navbar from './components/Navbar'
+// import ThemedCard from './components/ThemedCard'
 
-import { useInterns } from './contexts/intern-context'
+// import { useInterns } from './contexts/intern-context'
+
+// function App() {
+//   const { interns, isLoading } = useInterns()
+
+//   if (isLoading) {
+//     return <p>Loading interns...</p>
+//   }
+
+//   return (
+//     <div>
+//       <Navbar />
+
+//       <div style={{ padding: '16px' }}>
+//         {interns.map(intern => (
+//           <ThemedCard
+//             key={intern.id}
+//             name={intern.name}
+//             score={intern.score}
+//           />
+//         ))}
+//       </div>
+//     </div>
+//   )
+// }
+
+// export default App
+
+// import CounterDemo from './components/CounterDemo'
+
+// function App() {
+//   return (
+//     <div>
+//       <CounterDemo />
+//     </div>
+//   )
+// }
+
+// export default App
+
+// import Navbar from './components/Navbar'
+// import ThemedCard from './components/ThemedCard'
+// import AddInternForm from './components/AddInternForm'
+
+// import { useInterns } from './contexts/intern-context'
+
+// function App() {
+//   const { interns, isLoading } = useInterns()
+
+//   if (isLoading) {
+//     return <p>Loading...</p>
+//   }
+
+//   return (
+//     <div>
+//       <Navbar />
+
+//       <AddInternForm />
+
+//       {interns.map(intern => (
+//         <ThemedCard
+//           key={intern.id}
+//           name={intern.name}
+//           score={intern.score}
+//         />
+//       ))}
+//     </div>
+//   )
+// }
+
+// export default App
+
+
+import Navbar from './components/Navbar'
+import AddInternForm from './components/AddInternForm'
+import InternSearch from './components/InternSearch'
 
 function App() {
-  const { interns, isLoading } = useInterns()
-
-  if (isLoading) {
-    return <p>Loading interns...</p>
-  }
-
   return (
     <div>
       <Navbar />
 
-      <div style={{ padding: '16px' }}>
-        {interns.map(intern => (
-          <ThemedCard
-            key={intern.id}
-            name={intern.name}
-            score={intern.score}
-          />
-        ))}
+      <div style={{ padding: '20px' }}>
+        <AddInternForm />
+
+        <hr />
+
+        <InternSearch />
       </div>
     </div>
   )
