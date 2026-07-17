@@ -11,6 +11,7 @@ the required context during testing.
 */
 
 test('renders the intern name', () => {
+  expect.hasAssertions()
   render(<ThemedCard name="Rahul" score={92} />)
 
   expect(screen.getByText('Rahul')).toBeInTheDocument()

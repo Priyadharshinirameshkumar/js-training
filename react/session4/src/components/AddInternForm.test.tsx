@@ -14,6 +14,7 @@ describe('AddInternForm', () => {
   describe('user interactions', () => {
 
     test('updates name when user types', async () => {
+        expect.hasAssertions()
       const user = userEvent.setup()
       render(<AddInternForm />)
 
