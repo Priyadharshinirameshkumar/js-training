@@ -20,7 +20,10 @@ const InternContext = createContext<InternContextType | null>(null)
 export function InternProvider({ children }: { children: ReactNode }) {
   const [interns, setInterns] = useState<Intern[]>([])
   const [isLoading, setIsLoading] = useState<boolean>(true)
-
+// Theme and intern data are kept in separate contexts because they
+// represent different responsibilities. Splitting contexts makes the
+// code easier to maintain, avoids unnecessary re-renders, and allows
+// components to subscribe only to the data they actually need.
   useEffect(() => {
     setTimeout(() => {
       setInterns([
