@@ -2,8 +2,10 @@ import { useMemo } from 'react'
 import { useInterns } from '../contexts/intern-context'
 
 function ScoreStats() {
-  const { interns } = useInterns()
-
+  const { interns, isLoading } = useInterns()
+if (isLoading) {
+  return <p>Loading interns...</p>
+}
   const stats = useMemo(() => {
     console.log('Recalculating stats...')
 
