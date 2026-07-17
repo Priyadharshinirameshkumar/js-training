@@ -9,73 +9,168 @@ and keyboard events. It behaves more like a real browser,
 making tests more reliable and closer to actual user behavior.
 */
 
-test('updates name when user types', async () => {
-  const user = userEvent.setup()
+describe('AddInternForm', () => {
 
-  render(<AddInternForm />)
+  describe('user interactions', () => {
 
-  const nameInput = screen.getByPlaceholderText('Name')
+    test('updates name when user types', async () => {
+      const user = userEvent.setup()
+      render(<AddInternForm />)
 
-  await user.type(nameInput, 'Rahul')
+      const nameInput = screen.getByPlaceholderText('Name')
 
-  expect(screen.getByDisplayValue('Rahul')).toBeInTheDocument()
-})
+      await user.type(nameInput, 'Rahul')
 
-test('updates score when user types', async () => {
-  const user = userEvent.setup()
-
-  render(<AddInternForm />)
-
-  const scoreInput = screen.getByPlaceholderText('Score')
-
-  await user.clear(scoreInput)
-
-  await user.type(scoreInput, '92')
-
-  expect(screen.getByDisplayValue('92')).toBeInTheDocument()
-})
-
-test('resets name input when Reset is clicked', async () => {
-  const user = userEvent.setup()
-
-  render(<AddInternForm />)
-
-  const nameInput = screen.getByPlaceholderText('Name')
-
-  await user.type(nameInput, 'Rahul')
-
-  expect(nameInput).toHaveValue('Rahul')
-
-  await user.click(
-    screen.getByRole('button', {
-      name: 'Reset',
+      expect(screen.getByDisplayValue('Rahul')).toBeInTheDocument()
     })
-  )
 
-  expect(nameInput).toHaveValue('')
-})
+    test('updates score when user types', async () => {
+      const user = userEvent.setup()
+      render(<AddInternForm />)
 
-test('resets score when Reset is clicked', async () => {
-  const user = userEvent.setup()
+      const scoreInput = screen.getByPlaceholderText('Score')
 
-  render(<AddInternForm />)
+      await user.clear(scoreInput)
+      await user.type(scoreInput, '92')
 
-  const scoreInput = screen.getByPlaceholderText('Score')
-
-  await user.clear(scoreInput)
-
-  await user.type(scoreInput, '92')
-
-  expect(scoreInput).toHaveValue(92)
-
-  await user.click(
-    screen.getByRole('button', {
-      name: 'Reset',
+      expect(screen.getByDisplayValue('92')).toBeInTheDocument()
     })
-  )
+  })
 
-  expect(scoreInput).toHaveValue(0)
+
+  describe('reset behavior', () => {
+
+    test('resets name input when Reset is clicked', async () => {
+      const user = userEvent.setup()
+      render(<AddInternForm />)
+
+      const nameInput = screen.getByPlaceholderText('Name')
+
+      await user.type(nameInput, 'Rahul')
+
+      expect(nameInput).toHaveValue('Rahul')
+
+      await user.click(
+        screen.getByRole('button', { name: 'Reset' })
+      )
+
+      expect(nameInput).toHaveValue('')
+    })
+
+    test('resets score when Reset is clicked', async () => {
+      const user = userEvent.setup()
+      render(<AddInternForm />)
+
+      const scoreInput = screen.getByPlaceholderText('Score')
+
+      await user.clear(scoreInput)
+      await user.type(scoreInput, '92')
+
+      expect(scoreInput).toHaveValue(92)
+
+      await user.click(
+        screen.getByRole('button', { name: 'Reset' })
+      )
+
+      expect(scoreInput).toHaveValue(0)
+    })
+  })
+
+
+  describe('validation', () => {
+
+    test('shows error when name is empty on submit', async () => {
+      const user = userEvent.setup()
+      render(<AddInternForm />)
+
+      await user.click(
+        screen.getByRole('button', { name: 'Add Intern' })
+      )
+
+      expect(
+        screen.getByText('Name is required')
+      ).toBeInTheDocument()
+    })
+
+    test('shows error when score is above 100', async () => {
+      const user = userEvent.setup()
+      render(<AddInternForm />)
+
+      await user.type(
+        screen.getByPlaceholderText('Name'),
+        'Rahul'
+      )
+
+      await user.clear(
+        screen.getByPlaceholderText('Score')
+      )
+
+      await user.type(
+        screen.getByPlaceholderText('Score'),
+        '150'
+      )
+
+      await user.click(
+        screen.getByRole('button', { name: 'Add Intern' })
+      )
+
+      expect(
+        screen.getByText('Score must be 0–100')
+      ).toBeInTheDocument()
+    })
+
+    test('does not add an intern when the form is invalid', async () => {
+      const user = userEvent.setup()
+      render(<AddInternForm />)
+
+      await user.click(
+        screen.getByRole('button', { name: 'Add Intern' })
+      )
+
+      expect(
+        screen.getByText('Name is required')
+      ).toBeInTheDocument()
+    })
+
+    test('error clears when valid name is entered after failed submit', async () => {
+      const user = userEvent.setup()
+      render(<AddInternForm />)
+
+      await user.click(
+        screen.getByRole('button', { name: 'Add Intern' })
+      )
+
+      expect(
+        screen.getByText('Name is required')
+      ).toBeInTheDocument()
+
+      await user.type(
+        screen.getByPlaceholderText('Name'),
+        'Rahul'
+      )
+
+      await waitFor(() => {
+        expect(
+          screen.queryByText('Name is required')
+        ).not.toBeInTheDocument()
+      })
+    })
+  })
 })
+
+/*
+describe blocks should generally be nested no more than two levels
+deep because excessive nesting makes tests harder to read and
+understand. Deep nesting also makes test names longer and creates
+dependencies on multiple parent contexts. Keeping the structure
+shallow makes failed tests easier to identify, debug, and maintain.
+*/
+/*
+userEvent is preferred over fireEvent because it simulates
+real user interactions such as typing, clicking, focusing,
+and keyboard events. It behaves more like a real browser,
+making tests more reliable and closer to actual user behavior.
+*/
 
 /*
 expect.objectContaining(...) checks only the specified
@@ -111,68 +206,6 @@ Therefore, this project tests the actual user interactions
 existing Session 4 implementation unchanged.
 */
 
-test('shows error when name is empty on submit', async () => {
-  const user = userEvent.setup()
-
-  render(<AddInternForm />)
-
-  await user.click(
-    screen.getByRole('button', {
-      name: 'Add Intern',
-    })
-  )
-
-  expect(
-    screen.getByText('Name is required')
-  ).toBeInTheDocument()
-})
-
-test('shows error when score is above 100', async () => {
-  const user = userEvent.setup()
-
-  render(<AddInternForm />)
-
-  await user.type(
-    screen.getByPlaceholderText('Name'),
-    'Rahul'
-  )
-
-  await user.clear(
-    screen.getByPlaceholderText('Score')
-  )
-
-  await user.type(
-    screen.getByPlaceholderText('Score'),
-    '150'
-  )
-
-  await user.click(
-    screen.getByRole('button', {
-      name: 'Add Intern',
-    })
-  )
-
-  expect(
-    screen.getByText('Score must be 0–100')
-  ).toBeInTheDocument()
-})
-
-test('does not add an intern when the form is invalid', async () => {
-  const user = userEvent.setup()
-
-  render(<AddInternForm />)
-
-  // Submit without entering a name
-  await user.click(
-    screen.getByRole('button', {
-      name: 'Add Intern',
-    })
-  )
-
-  expect(
-    screen.getByText('Name is required')
-  ).toBeInTheDocument()
-})
 /*
 not.toHaveBeenCalled() verifies that a mock function was never
 called. It is clearer and more readable than
@@ -180,35 +213,7 @@ toHaveBeenCalledTimes(0) because it directly expresses the
 intention that the function should not be called at all.
 */
 
-test('error clears when valid name is entered after failed submit', async () => {
-  const user = userEvent.setup()
 
-  render(<AddInternForm />)
-
-  // Trigger the validation error
-  await user.click(
-    screen.getByRole('button', {
-      name: 'Add Intern',
-    })
-  )
-
-  expect(
-    screen.getByText('Name is required')
-  ).toBeInTheDocument()
-
-  // Fix the error by typing a valid name
-  await user.type(
-    screen.getByPlaceholderText('Name'),
-    'Rahul'
-  )
-
-  // waitFor retries until the expectation passes
-  await waitFor(() => {
-    expect(
-      screen.queryByText('Name is required')
-    ).not.toBeInTheDocument()
-  })
-})
 
 /*
 queryBy is used instead of getBy because we are checking
