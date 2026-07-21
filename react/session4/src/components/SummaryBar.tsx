@@ -21,3 +21,19 @@ export default function SummaryBar() {
     </div>
   )
 }
+
+/*
+External Dependencies:
+
+1. useInterns() from intern-context
+   - Provides the intern list.
+   - If used directly in tests, the component depends on the real provider.
+
+Potential FIRST Principle Issues:
+
+- Using the real InternProvider can make tests slower.
+- The data may change, making tests less repeatable.
+- Tests become dependent on context setup instead of only the SummaryBar component.
+
+To keep tests fast, independent, and repeatable, useInterns is mocked in the tests.
+*/
