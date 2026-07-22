@@ -14,15 +14,17 @@ function InternRow({ id, name, score, onRemove }: InternRowProps) {
 
   console.log(`InternRow rendered: ${name}`)
 
-  return (
-    <div
-      style={{
-        background: theme === 'light' ? '#fff' : '#2a2a2a',
-        color: theme === 'light' ? '#000' : '#eee',
-        padding: '8px',
-        margin: '4px 0',
-      }}
-    >
+  
+    return (
+  <div
+    data-testid="intern-card"
+    style={{
+      background: theme === 'light' ? '#fff' : '#2a2a2a',
+      color: theme === 'light' ? '#000' : '#eee',
+      padding: '8px',
+      margin: '4px 0',
+    }}
+  >
       <span>
         {name} — {score}
       </span>

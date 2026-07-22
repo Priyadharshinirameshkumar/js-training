@@ -29,13 +29,13 @@ function AddInternForm() {
   }
 
   return (
-    <div>
+    <div data-testid="add-intern-form">
 
       {error && (
-        <p style={{ color: 'red' }}>
-          {error}
-        </p>
-      )}
+  <p role="alert" style={{ color: 'red' }}>
+    {error}
+  </p>
+)}
 
       <input
         name="name"
@@ -53,24 +53,28 @@ function AddInternForm() {
         placeholder="Score"
       />
 
-      <input
-        name="isPresent"
-        type="checkbox"
-        checked={form.isPresent}
-        onChange={handleChange}
-      />
+     <label>
+  <input
+    name="isPresent"
+    type="checkbox"
+    checked={form.isPresent}
+    onChange={handleChange}
+  />
+  Present
+</label>
 
-      <label>Present</label>
-
-      <select
-        name="role"
-        value={form.role}
-        onChange={handleChange}
-      >
-        <option value="Frontend">Frontend</option>
-        <option value="Backend">Backend</option>
-        <option value="Fullstack">Fullstack</option>
-      </select>
+      <label>
+  Role
+  <select
+    name="role"
+    value={form.role}
+    onChange={handleChange}
+  >
+    <option value="Frontend">Frontend</option>
+    <option value="Backend">Backend</option>
+    <option value="Fullstack">Fullstack</option>
+  </select>
+</label>
 
       <br />
       <br />
