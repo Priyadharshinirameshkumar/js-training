@@ -35,6 +35,11 @@ function InternLoader() {
   if (isLoading)
     return <p>Loading interns...</p>
 
+  // Data fetching is placed inside useEffect because it is a side effect.
+// useEffect runs after the component mounts, preventing the API call
+// from running on every render. Calling it directly in the component
+// body would trigger repeated requests whenever the component re-renders.
+
   return (
 
     <ul>
